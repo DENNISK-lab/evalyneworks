@@ -1,0 +1,598 @@
+```html
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Eva Wanja Gachungi - Sustainability Data Analyst | Transforming data into environmental impact">
+    <title>Eva Wanja Gachungi | Sustainability Data Analyst</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Playfair+Display:wght@600;700&amp;display=swap" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Playfair+Display:wght@600;700&amp;display=swap');
+        
+        :root {
+            --primary: 46 125 50;
+        }
+        
+        .tail-container {
+            font-family: 'Inter', system_ui, sans-serif;
+        }
+        
+        .heading-font {
+            font-family: 'Playfair Display', sans-serif;
+        }
+
+        .hero-bg {
+            background: linear-gradient(135deg, #1a2521 0%, #2e7d32 100%);
+        }
+
+        .glass {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(16px);
+        }
+
+        .dark .glass {
+            background: rgba(26, 37, 33, 0.85);
+        }
+
+        .nav-link {
+            position: relative;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .nav-link:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -2px;
+            left: 0;
+            background-color: rgb(201 166 107);
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover:after {
+            width: 100%;
+        }
+
+        .project-card {
+            transition: all 0.4s cubic-bezier(0.4, 0.0, 0.2, 1);
+        }
+        
+        .project-card:hover {
+            transform: translateY(-12px);
+            box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.25);
+        }
+
+        .skill-bar {
+            height: 6px;
+            background: linear-gradient(90deg, rgb(46 125 50), rgb(201 166 107));
+            transition: width 1.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        .leaf-bg {
+            background-image: 
+                radial-gradient(circle at 25% 25%, rgba(76, 175, 80, 0.08) 0%, transparent 50%),
+                radial-gradient(circle at 75% 75%, rgba(201, 166, 107, 0.08) 0%, transparent 50%);
+        }
+    </style>
+</head>
+<body class="tail-container bg-[#f8f1e9] dark:bg-[#1a2521] text-[#1a2521] dark:text-[#f8f1e9] transition-colors duration-500">
+    <!-- NAVBAR -->
+    <nav class="sticky top-0 z-50 bg-white/90 dark:bg-[#1a2521]/90 glass border-b border-[#d2b48c]/30">
+        <div class="max-w-7xl mx-auto px-6 py-5 flex items-center justify-between">
+            <div class="flex items-center gap-3">
+                <div class="w-9 h-9 bg-[#2e7d32] rounded-2xl flex items-center justify-center text-white font-bold text-2xl">E</div>
+                <div>
+                    <span class="heading-font text-2xl font-semibold tracking-tight">Eva Wanja</span>
+                </div>
+            </div>
+            
+            <div class="hidden md:flex items-center gap-8 text-sm font-medium">
+                <a href="#about" class="nav-link text-[#2e7d32] dark:text-[#a3d9a8]">About</a>
+                <a href="#mission" class="nav-link">Mission</a>
+                <a href="#skills" class="nav-link">Skills</a>
+                <a href="#projects" class="nav-link">Projects</a>
+                <a href="#work" class="nav-link">Work</a>
+                <a href="#contact" class="nav-link">Contact</a>
+            </div>
+
+            <div class="flex items-center gap-4">
+                <button onclick="toggleDarkMode()" 
+                        class="w-10 h-10 flex items-center justify-center rounded-2xl hover:bg-[#2e7d32]/10 dark:hover:bg-white/10 transition-colors">
+                    <i id="theme-icon" class="fas fa-moon text-xl"></i>
+                </button>
+                
+                <a href="#" onclick="downloadCV()" 
+                   class="px-6 py-3 bg-[#2e7d32] hover:bg-[#1f5c24] text-white rounded-3xl text-sm font-semibold transition-all flex items-center gap-2">
+                    <i class="fas fa-download"></i>
+                    <span>CV</span>
+                </a>
+                
+                <button class="md:hidden w-10 h-10 flex items-center justify-center text-2xl" id="mobile-menu-btn">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- MOBILE MENU -->
+    <div id="mobile-menu" class="hidden fixed inset-0 bg-white dark:bg-[#1a2521] z-40 pt-20 px-6">
+        <div class="flex flex-col gap-6 text-lg">
+            <a href="#about" class="py-3 border-b border-[#d2b48c]/30" onclick="toggleMobileMenu()">About</a>
+            <a href="#mission" class="py-3 border-b border-[#d2b48c]/30" onclick="toggleMobileMenu()">Mission</a>
+            <a href="#skills" class="py-3 border-b border-[#d2b48c]/30" onclick="toggleMobileMenu()">Skills</a>
+            <a href="#projects" class="py-3 border-b border-[#d2b48c]/30" onclick="toggleMobileMenu()">Projects</a>
+            <a href="#work" class="py-3 border-b border-[#d2b48c]/30" onclick="toggleMobileMenu()">Work</a>
+            <a href="#contact" class="py-3" onclick="toggleMobileMenu()">Contact</a>
+        </div>
+    </div>
+
+    <!-- HERO -->
+    <section class="hero-bg text-white min-h-screen flex items-center relative overflow-hidden">
+        <div class="absolute inset-0 bg-[radial-gradient(at_bottom_right,#4caf50_0%,transparent_70%)] opacity-30"></div>
+        
+        <div class="max-w-7xl mx-auto px-6 pt-20 pb-16 grid md:grid-cols-2 gap-12 items-center">
+            <div class="space-y-8">
+                <div class="inline-flex items-center gap-2 bg-white/20 backdrop-blur-md px-5 py-2 rounded-3xl text-sm">
+                    <div class="w-2 h-2 bg-emerald-400 rounded-full animate-pulse"></div>
+                    Nairobi, Kenya
+                </div>
+                
+                <h1 class="heading-font text-6xl md:text-7xl leading-tight font-semibold tracking-tighter">
+                    Eva Wanja<br>Gachungi
+                </h1>
+                
+                <p class="text-2xl md:text-3xl text-[#c9d9c0] font-light">
+                    Sustainability Data Analyst
+                </p>
+                
+                <div class="max-w-lg">
+                    <p class="text-lg text-[#c9d9c0]">
+                        Transforming sustainability data into actionable insights. 
+                        Helping organizations make environmentally responsible, data-driven decisions.
+                    </p>
+                </div>
+                
+                <div class="flex flex-wrap gap-4">
+                    <a href="#projects" 
+                       class="px-8 py-4 bg-white text-[#1a2521] hover:bg-[#c9a66b] transition-all rounded-3xl font-semibold flex items-center gap-3 group">
+                        View My Work
+                        <span class="text-xl group-active:rotate-45 transition-transform">→</span>
+                    </a>
+                    
+                    <a href="#contact" 
+                       class="px-8 py-4 border border-white/70 hover:bg-white/10 transition-all rounded-3xl font-medium">
+                        Let's Connect
+                    </a>
+                </div>
+                
+                <!-- Social Icons -->
+                <div class="flex gap-6 pt-6">
+                    <a href="#" class="hover:text-[#c9a66b] transition-colors text-3xl"><i class="fab fa-linkedin"></i></a>
+                    <a href="#" class="hover:text-[#c9a66b] transition-colors text-3xl"><i class="fab fa-github"></i></a>
+                    <a href="#" class="hover:text-[#c9a66b] transition-colors text-3xl"><i class="fas fa-envelope"></i></a>
+                    <a href="#" class="hover:text-[#c9a66b] transition-colors text-3xl"><i class="fab fa-x-twitter"></i></a>
+                </div>
+            </div>
+            
+            <!-- Hero Visual -->
+            <div class="relative flex justify-center">
+                <div class="relative">
+                    <div class="absolute -inset-8 bg-gradient-to-br from-[#4caf50] to-[#c9a66b] opacity-20 rounded-[4rem] rotate-6"></div>
+                    <img src="https://picsum.photos/id/1015/600/700" 
+                         alt="Eva Wanja Gachungi"
+                         class="w-full max-w-md rounded-3xl shadow-2xl relative z-10 object-cover h-[620px]">
+                    
+                    <!-- Floating badges -->
+                    <div class="absolute -top-6 -right-6 glass dark:bg-[#2a3a36] px-6 py-4 rounded-3xl shadow-xl flex items-center gap-3">
+                        <div class="text-4xl">🌍</div>
+                        <div>
+                            <div class="text-xs tracking-widest uppercase">Current Impact</div>
+                            <div class="text-2xl font-semibold text-[#2e7d32] dark:text-emerald-400">248t CO₂</div>
+                            <div class="text-xs text-gray-500 dark:text-gray-400">reduced this quarter</div>
+                        </div>
+                    </div>
+                    
+                    <div class="absolute -bottom-8 -left-8 bg-white dark:bg-[#2a3a36] px-6 py-5 rounded-3xl shadow-xl flex flex-col items-center">
+                        <div class="text-emerald-600 text-5xl font-light">92</div>
+                        <div class="text-xs uppercase tracking-widest">Sustainability Score</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 flex flex-col items-center">
+            <div class="text-xs tracking-widest opacity-70 mb-2">SCROLL TO EXPLORE</div>
+            <div class="w-5 h-8 border border-white/60 rounded-full flex items-center justify-center">
+                <div class="w-1 h-2 bg-white rounded-full animate-bounce"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about" class="py-24 leaf-bg">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid md:grid-cols-12 gap-16 items-center">
+                <div class="md:col-span-5">
+                    <div class="sticky top-28">
+                        <span class="inline-block px-4 py-1.5 bg-[#2e7d32]/10 text-[#2e7d32] dark:text-emerald-400 text-sm font-medium rounded-3xl">CHAPTER 01</span>
+                        <h2 class="heading-font text-5xl mt-3 leading-none">Meet Eva</h2>
+                        <div class="h-1 w-16 bg-[#c9a66b] mt-6"></div>
+                    </div>
+                </div>
+                
+                <div class="md:col-span-7">
+                    <div class="prose dark:prose-invert text-lg leading-relaxed max-w-none">
+                        <p class="text-xl">
+                            Passionate Sustainability Data Analyst based in Nairobi, Kenya, with a deep commitment to leveraging data analytics 
+                            to drive meaningful environmental and social change across Africa and beyond.
+                        </p>
+                        <p>
+                            I specialize in transforming complex sustainability metrics into clear, actionable insights that empower 
+                            organizations to reduce their environmental footprint while strengthening business resilience.
+                        </p>
+                    </div>
+                    
+                    <div class="mt-12 grid grid-cols-2 gap-8">
+                        <div>
+                            <div class="text-[#c9a66b] text-sm font-medium mb-2">EDUCATION</div>
+                            <div class="space-y-6">
+                                <div>
+                                    <div class="font-semibold">MSc. Environmental Data Science</div>
+                                    <div class="text-sm text-gray-500">University of Nairobi • 2024</div>
+                                </div>
+                                <div>
+                                    <div class="font-semibold">BSc. Environmental Science &amp; Statistics</div>
+                                    <div class="text-sm text-gray-500">Kenyatta University • 2021</div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <div class="text-[#c9a66b] text-sm font-medium mb-2">CERTIFICATIONS</div>
+                            <div class="flex flex-wrap gap-3">
+                                <div class="bg-white dark:bg-[#2a3a36] px-5 py-3 rounded-2xl text-sm">GRI Certified</div>
+                                <div class="bg-white dark:bg-[#2a3a36] px-5 py-3 rounded-2xl text-sm">Carbon Literacy</div>
+                                <div class="bg-white dark:bg-[#2a3a36] px-5 py-3 rounded-2xl text-sm">Tableau Specialist</div>
+                                <div class="bg-white dark:bg-[#2a3a36] px-5 py-3 rounded-2xl text-sm">CFA ESG Investing</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <a href="#" onclick="downloadCV()" 
+                       class="mt-12 inline-flex items-center gap-3 group">
+                        <span class="text-sm font-medium tracking-widest">DOWNLOAD FULL CV</span>
+                        <div class="w-8 h-px bg-current"></div>
+                        <i class="fas fa-arrow-down group-hover:translate-y-1 transition"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- MISSION -->
+    <section id="mission" class="py-24 bg-[#1a2521] text-white">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <span class="px-6 py-2 bg-white/10 text-emerald-300 text-sm rounded-3xl">MY NORTH STAR</span>
+                <h2 class="heading-font text-5xl mt-6">Data for a Regenerative Future</h2>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-white/5 p-8 rounded-3xl border border-white/10">
+                    <div class="text-6xl mb-6">📊</div>
+                    <h3 class="text-2xl font-semibold mb-3">Insight-Driven Impact</h3>
+                    <p class="text-gray-300">Turning complex environmental datasets into strategic intelligence that drives measurable sustainability outcomes.</p>
+                </div>
+                <div class="bg-white/5 p-8 rounded-3xl border border-white/10">
+                    <div class="text-6xl mb-6">🌱</div>
+                    <h3 class="text-2xl font-semibold mb-3">African Solutions</h3>
+                    <p class="text-gray-300">Developing locally relevant sustainability frameworks and analytics tailored to the unique challenges and opportunities across Africa.</p>
+                </div>
+                <div class="bg-white/5 p-8 rounded-3xl border border-white/10">
+                    <div class="text-6xl mb-6">🤝</div>
+                    <h3 class="text-2xl font-semibold mb-3">Collaborative Change</h3>
+                    <p class="text-gray-300">Partnering with businesses, NGOs, and governments to co-create data-powered pathways toward net-zero and regenerative economies.</p>
+                </div>
+            </div>
+            
+            <div class="mt-20 text-center text-emerald-300 text-sm tracking-[3px] font-medium">
+                “The future belongs to those who understand both the numbers and the natural world.”
+            </div>
+        </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section id="skills" class="py-24">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex justify-between items-end mb-12">
+                <div>
+                    <span class="text-emerald-600 text-sm font-semibold">EXPERTISE</span>
+                    <h2 class="heading-font text-5xl">Skills &amp; Tools</h2>
+                </div>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-10">
+                <!-- Technical -->
+                <div>
+                    <h3 class="uppercase text-xs tracking-widest mb-6 text-[#c9a66b]">Technical</h3>
+                    <div class="space-y-8">
+                        <div>
+                            <div class="flex justify-between text-sm mb-2">
+                                <span>Python &amp; SQL</span>
+                                <span class="text-emerald-600">95%</span>
+                            </div>
+                            <div class="h-px bg-gray-200 dark:bg-gray-700"><div class="skill-bar w-[95%]"></div></div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between text-sm mb-2">
+                                <span>Power BI &amp; Tableau</span>
+                                <span class="text-emerald-600">90%</span>
+                            </div>
+                            <div class="h-px bg-gray-200 dark:bg-gray-700"><div class="skill-bar w-[90%]"></div></div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between text-sm mb-2">
+                                <span>Data Visualization</span>
+                                <span class="text-emerald-600">92%</span>
+                            </div>
+                            <div class="h-px bg-gray-200 dark:bg-gray-700"><div class="skill-bar w-[92%]"></div></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Sustainability -->
+                <div>
+                    <h3 class="uppercase text-xs tracking-widest mb-6 text-[#c9a66b]">Sustainability</h3>
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="bg-white dark:bg-[#2a3a36] p-6 rounded-3xl">ESG Reporting</div>
+                        <div class="bg-white dark:bg-[#2a3a36] p-6 rounded-3xl">Carbon Accounting</div>
+                        <div class="bg-white dark:bg-[#2a3a36] p-6 rounded-3xl">SDG Alignment</div>
+                        <div class="bg-white dark:bg-[#2a3a36] p-6 rounded-3xl">LCA Analysis</div>
+                    </div>
+                </div>
+                
+                <!-- Soft Skills -->
+                <div>
+                    <h3 class="uppercase text-xs tracking-widest mb-6 text-[#c9a66b]">Leadership</h3>
+                    <div class="flex flex-wrap gap-3">
+                        <span class="px-5 py-3 bg-[#f1e9d8] dark:bg-[#2a3a36] rounded-3xl text-sm">Storytelling</span>
+                        <span class="px-5 py-3 bg-[#f1e9d8] dark:bg-[#2a3a36] rounded-3xl text-sm">Stakeholder Engagement</span>
+                        <span class="px-5 py-3 bg-[#f1e9d8] dark:bg-[#2a3a36] rounded-3xl text-sm">Cross-functional Collaboration</span>
+                        <span class="px-5 py-3 bg-[#f1e9d8] dark:bg-[#2a3a36] rounded-3xl text-sm">Strategic Thinking</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section id="projects" class="py-24 bg-[#f4ede4]">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex justify-between items-center mb-12">
+                <h2 class="heading-font text-5xl">Featured Projects</h2>
+                <a href="#" class="text-sm flex items-center gap-2 group">
+                    VIEW ALL PROJECTS 
+                    <span class="transition group-hover:translate-x-1">→</span>
+                </a>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Project 1 -->
+                <div class="project-card bg-white dark:bg-[#2a3a36] rounded-3xl overflow-hidden">
+                    <div class="h-64 bg-gradient-to-br from-emerald-700 to-teal-600 flex items-center justify-center">
+                        <span class="text-white/70 text-6xl">📈</span>
+                    </div>
+                    <div class="p-8">
+                        <h3 class="font-semibold text-xl mb-2">ESG Performance Dashboard</h3>
+                        <p class="text-sm text-gray-500 dark:text-gray-400 mb-6">Real-time ESG reporting platform for East African manufacturing firms</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="text-xs bg-gray-100 dark:bg-gray-700 px-3 py-1 rounded-full">Power BI</span>
+                            <span class="text-xs bg-gray-100 dark:bg-gray-700 px-3 py-1 rounded-full">Python</span>
+                            <span class="text-xs bg-gray-100 dark:bg-gray-700 px-3 py-1 rounded-full">GRI</span>
+                        </div>
+                        <div class="mt-8 flex gap-4">
+                            <button onclick="alert('Project demo would open here')" 
+                                    class="flex-1 py-4 text-sm font-medium border border-[#2e7d32] hover:bg-[#2e7d32] hover:text-white rounded-2xl transition">View Live Demo</button>
+                            <button class="flex-1 py-4 text-sm font-medium bg-[#2e7d32] text-white rounded-2xl">GitHub</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 2 -->
+                <div class="project-card bg-white dark:bg-[#2a3a36] rounded-3xl overflow-hidden">
+                    <div class="h-64 bg-gradient-to-br from-amber-700 to-orange-600 flex items-center justify-center">
+                        <span class="text-white/70 text-6xl">🌍</span>
+                    </div>
+                    <div class="p-8">
+                        <h3 class="font-semibold text-xl mb-2">Corporate Carbon Footprint Analyzer</h3>
+                        <p class="text-sm text-gray-500 dark:text-gray-400 mb-6">Scope 1, 2 &amp; 3 emissions tracker with reduction pathway modeling</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="text-xs bg-gray-100 dark:bg-gray-700 px-3 py-1 rounded-full">Python</span>
+                            <span class="text-xs bg-gray-100 dark:bg-gray-700 px-3 py-1 rounded-full">SQL</span>
+                            <span class="text-xs bg-gray-100 dark:bg-gray-700 px-3 py-1 rounded-full">GHG Protocol</span>
+                        </div>
+                        <div class="mt-8 flex gap-4">
+                            <button onclick="alert('Project demo would open here')" 
+                                    class="flex-1 py-4 text-sm font-medium border border-[#2e7d32] hover:bg-[#2e7d32] hover:text-white rounded-2xl transition">View Live Demo</button>
+                            <button class="flex-1 py-4 text-sm font-medium bg-[#2e7d32] text-white rounded-2xl">GitHub</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 3 -->
+                <div class="project-card bg-white dark:bg-[#2a3a36] rounded-3xl overflow-hidden">
+                    <div class="h-64 bg-gradient-to-br from-sky-700 to-blue-600 flex items-center justify-center">
+                        <span class="text-white/70 text-6xl">📊</span>
+                    </div>
+                    <div class="p-8">
+                        <h3 class="font-semibold text-xl mb-2">SDG Impact Dashboard</h3>
+                        <p class="text-sm text-gray-500 dark:text-gray-400 mb-6">Aligning corporate strategy with UN Sustainable Development Goals</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="text-xs bg-gray-100 dark:bg-gray-700 px-3 py-1 rounded-full">Tableau</span>
+                            <span class="text-xs bg-gray-100 dark:bg-gray-700 px-3 py-1 rounded-full">R</span>
+                        </div>
+                        <div class="mt-8 flex gap-4">
+                            <button onclick="alert('Project demo would open here')" 
+                                    class="flex-1 py-4 text-sm font-medium border border-[#2e7d32] hover:bg-[#2e7d32] hover:text-white rounded-2xl transition">View Live Demo</button>
+                            <button class="flex-1 py-4 text-sm font-medium bg-[#2e7d32] text-white rounded-2xl">GitHub</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- MY WORK -->
+    <section id="work" class="py-24">
+        <div class="max-w-7xl mx-auto px-6">
+            <h2 class="heading-font text-5xl text-center mb-16">Data Stories &amp; Impact</h2>
+            
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="bg-white dark:bg-[#2a3a36] rounded-3xl p-8">
+                    <div class="aspect-video bg-zinc-200 dark:bg-zinc-800 rounded-2xl mb-6 flex items-center justify-center text-6xl">📉</div>
+                    <h4 class="font-semibold">2025 Kenya Climate Risk Assessment</h4>
+                    <p class="text-sm mt-2 text-gray-500">Comprehensive analysis for 12 counties using satellite and ground data</p>
+                </div>
+                
+                <div class="bg-white dark:bg-[#2a3a36] rounded-3xl p-8">
+                    <div class="aspect-video bg-zinc-200 dark:bg-zinc-800 rounded-2xl mb-6 flex items-center justify-center text-6xl">📈</div>
+                    <h4 class="font-semibold">Safaricom Sustainability Report 2024</h4>
+                    <p class="text-sm mt-2 text-gray-500">Led data visualization and metrics framework for annual report</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="py-24 bg-[#1a2521] text-white">
+        <div class="max-w-4xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="heading-font text-6xl">Let's build a better tomorrow</h2>
+                <p class="mt-6 text-xl text-emerald-200">Open to consulting, full-time roles, and meaningful collaborations</p>
+            </div>
+            
+            <form id="contact-form" class="space-y-8">
+                <div class="grid md:grid-cols-2 gap-8">
+                    <input type="text" placeholder="Your name" 
+                           class="bg-white/10 border border-white/20 rounded-3xl px-8 py-6 focus:outline-none focus:border-emerald-400 transition">
+                    <input type="email" placeholder="Email address" 
+                           class="bg-white/10 border border-white/20 rounded-3xl px-8 py-6 focus:outline-none focus:border-emerald-400 transition">
+                </div>
+                <textarea placeholder="Tell me about your project..." rows="6"
+                          class="bg-white/10 border border-white/20 rounded-3xl px-8 py-6 w-full focus:outline-none focus:border-emerald-400 transition"></textarea>
+                
+                <button type="button" onclick="submitForm()" 
+                        class="w-full py-6 bg-white text-[#1a2521] rounded-3xl font-semibold hover:bg-[#c9a66b] transition">
+                    SEND MESSAGE
+                </button>
+            </form>
+            
+            <div class="flex justify-center gap-12 mt-16 text-3xl">
+                <a href="#" class="hover:text-emerald-400 transition">↗</a>
+                <a href="#" class="hover:text-emerald-400 transition"><i class="fab fa-linkedin"></i></a>
+                <a href="#" class="hover:text-emerald-400 transition"><i class="fab fa-github"></i></a>
+            </div>
+            
+            <div class="text-center mt-8 text-sm text-emerald-300/70">
+                Nairobi, Kenya • eva.wanja@proton.me
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-[#0f1915] text-white/60 py-16">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-center gap-8">
+                <div class="flex items-center gap-3">
+                    <div class="w-8 h-8 bg-emerald-600 rounded-2xl flex items-center justify-center text-white text-xl font-bold">E</div>
+                    <span class="text-white">© 2026 Eva Wanja Gachungi</span>
+                </div>
+                
+                <div class="flex gap-8 text-sm">
+                    <a href="#" class="hover:text-white transition">LinkedIn</a>
+                    <a href="#" class="hover:text-white transition">GitHub</a>
+                    <a href="#" class="hover:text-white transition">Medium</a>
+                </div>
+                
+                <button onclick="window.scrollTo({top: 0, behavior: 'smooth'})" 
+                        class="text-xs flex items-center gap-2 hover:text-white transition">
+                    BACK TO TOP 
+                    <span class="text-lg">↑</span>
+                </button>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Tailwind script already included via CDN
+        
+        function toggleDarkMode() {
+            document.documentElement.classList.toggle('dark')
+            const icon = document.getElementById('theme-icon')
+            if (document.documentElement.classList.contains('dark')) {
+                icon.classList.remove('fa-moon')
+                icon.classList.add('fa-sun')
+            } else {
+                icon.classList.add('fa-moon')
+                icon.classList.remove('fa-sun')
+            }
+        }
+        
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu')
+            menu.classList.toggle('hidden')
+        }
+        
+        document.getElementById('mobile-menu-btn').addEventListener('click', toggleMobileMenu)
+        
+        function downloadCV() {
+            alert("Thank you! In a real version, this would download Eva's CV as a PDF.")
+        }
+        
+        function submitForm() {
+            const form = document.getElementById('contact-form')
+            alert("Thank you for your message, Eva will get back to you shortly! 🌱")
+            form.reset()
+        }
+        
+        // Animate skill bars when scrolled into view
+        function animateSkills() {
+            const bars = document.querySelectorAll('.skill-bar')
+            bars.forEach(bar => {
+                bar.style.width = bar.style.width || '0%'
+            })
+        }
+        
+        // Simple intersection observer for scroll animations
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 800) {
+                animateSkills()
+            }
+        })
+        
+        // Keyboard shortcut for dark mode (Ctrl/Cmd + K)
+        document.addEventListener('keydown', function(e) {
+            if ((e.ctrlKey || e.metaKey) && e.key === 'k') {
+                e.preventDefault()
+                toggleDarkMode()
+            }
+        })
+        
+        // Initialize
+        console.log('%cEva Wanja Gachungi Portfolio loaded successfully 🌍', 'color: #2e7d32; font-family: monospace')
+        
+        // Prefill dark mode preference
+        if (localStorage.getItem('darkMode') === 'true' || 
+            (!localStorage.getItem('darkMode') && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark')
+            document.getElementById('theme-icon').classList.remove('fa-moon')
+            document.getElementById('theme-icon').classList.add('fa-sun')
+        }
+    </script>
+</body>
+</html>
+```
